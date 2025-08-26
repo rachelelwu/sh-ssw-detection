@@ -34,7 +34,7 @@ Currently implemented functions include:
 ├── functions/ # Python modules for event detection
 ├── data/ # Input data (NetCDF, txt, bin) [not version controlled]
 ├── outputs/
-│ └── event_dates_csv/ # CSV files with detected event dates
+│ └── event_dates_csv/ # CSV/ txt files with detected event dates
 └── README.md
   
   ``` </pre>
