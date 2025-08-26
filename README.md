@@ -48,19 +48,19 @@ Clone the repository:
 ```bash
 git clone https://github.com/your-username/sh-ssw-detection.git
 cd sh-ssw-detection
-
+```
 
 Edit config.py to point to your local data directories.
 Detected events will be saved in outputs/event_dates_csv/.
 
 Example usage (EP flux):
-
+```
 import sh_ssw_methods as ssw
 from config import params
 
 # zeof1_lim
 ze_lv50 = ssw.zeof1_lim(**params["zeof1_lim_lv50"])
-
+```
 ---
 
 #### 📌 Notes
