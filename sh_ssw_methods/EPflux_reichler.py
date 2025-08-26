@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 
 from scipy.ndimage import uniform_filter1d
+from pathlib import Path
 
 def drophf4n(
     hf,
@@ -203,7 +204,7 @@ def detrend_hf_anom(hfo, NDYS, NYRS, NM):
     return hf_mode0
 
 
-def main_EPflux_reichler(FN, DT=None, DU=None, output_csv=True):
+def main_EPflux_reichler(FN, DT=None, DU=None, output_csv=None):
 
     
     # 0. inputs
@@ -238,7 +239,15 @@ def main_EPflux_reichler(FN, DT=None, DU=None, output_csv=True):
     DAT = drophf4n(hf_mode0, SDY1, EDY2, DT, DU, NYRS, SY, NDYS, NDSEP, NEGHF=0)
 
     if output_csv:
-        file = f"FZ{HLEVEL}_SH_{MODEL}_tau{DT}_sfz{DU}.csv"
+
+        # if output_csv is True, write in current folder
+        if output_csv is True:
+            out_dir = Path(".")
+        else:
+            out_dir = Path(output_csv)
+            out_dir.mkdir(parents=True, exist_ok=True)
+            
+        file = out_dir / f"FZ{HLEVEL}_SH_{MODEL}_tau{DT}_sfz{DU}.csv"
 
         with open(file, "w") as fout:
             fout.write(f"# Data: {MODEL} {SY}-{EY}\n")

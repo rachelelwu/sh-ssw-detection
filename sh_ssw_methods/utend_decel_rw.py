@@ -16,6 +16,7 @@ import pandas as pd
 import xarray as xr
 
 from datetime import datetime, timedelta
+from pathlib import Path
 
 # Identify deceleration events
 
@@ -212,21 +213,33 @@ def find_decel(U_data, U_time, drop, nxtevnt, wdw, mode):
 #     return onset_dates, drop_vals
 
 
-def detect_u_decel(u1060f, wp0, drop=None, clim_range=None, nxtevnt=20, wdw=10, mode='decel', varname=None):
+def detect_u_decel(
+    u1060f,
+    wp0,
+    drop=None,
+    clim_range=None,
+    nxtevnt=20,
+    wdw=10,
+    mode="decel",
+    varname=None,
+    output_csv=None,
+):
     """
     Detect deceleration/acceleration events from zonal mean zonal wind.
 
     Parameters
     ----------
-    u1060f : str
+    u1060f : str or Path
         Path to ERA5 zonal mean zonal wind NetCDF file.
     wp0 : str or int
         Pressure level (10 or 50 hPa).
     drop : float, optional
-        Threshold for wind change per day (m/s/day). 
+        Threshold for wind change per day (m/s/day).
         If None, defaults are:
         -2 for 10 hPa
         -1 for 50 hPa
+    clim_range : list of str, optional
+        Time slice as [start_date, end_date].
     nxtevnt : int, optional
         Minimum separation (days) between identified events.
     wdw : int, optional
@@ -235,6 +248,10 @@ def detect_u_decel(u1060f, wp0, drop=None, clim_range=None, nxtevnt=20, wdw=10, 
         'decel' or 'accel' (default 'decel').
     varname : str, optional
         Variable name inside NetCDF. If None, assumed 'u{wp0}60S'.
+    output_csv : bool or Path, optional
+        If True, saves CSV in current working directory.
+        If Path, saves into that folder.
+        If None/False, does not save.
 
     Returns
     -------
@@ -243,11 +260,12 @@ def detect_u_decel(u1060f, wp0, drop=None, clim_range=None, nxtevnt=20, wdw=10, 
     drop_vals : np.ndarray
         Magnitude of wind changes for events.
     """
+
     # Set default drop if not given
     if drop is None:
-        if str(wp0) == '10':
+        if str(wp0) == "10":
             drop = -2
-        elif str(wp0) == '50':
+        elif str(wp0) == "50":
             drop = -1
         else:
             raise ValueError(f"Unsupported wp0: {wp0}. Expected '10' or '50'.")
@@ -267,8 +285,36 @@ def detect_u_decel(u1060f, wp0, drop=None, clim_range=None, nxtevnt=20, wdw=10, 
     U_data = da.values
     U_time = dates.date2num(da["time"].values)
 
-    # Use your original core finder
+    # Core finder
     onset_nums, drop_vals = find_decel(U_data, U_time, drop, nxtevnt, wdw, mode)
     event_dates = dates.num2date(onset_nums)
 
+    # Save CSV if requested
+    if output_csv:
+        if output_csv is True:
+            out_dir = Path(".")
+        else:
+            out_dir = Path(output_csv)
+            out_dir.mkdir(parents=True, exist_ok=True)
+
+        fname = out_dir / f"u{wp0}_60S_{mode}_events.csv"
+
+        with open(fname, "w") as fout:
+            # ---- description block ----
+            fout.write("# Module for functions related to deceleration event analysis\n")
+            fout.write("# Algorithm used in Wu et al. (2022) to identify wind acceleration and deceleration events\n")
+            fout.write(f"# Level: {wp0} hPa, Mode: {mode}\n")
+            fout.write(f"# drop = {drop} m/s per day, nxtevnt = {nxtevnt} days, wdw = {wdw} days\n")
+            if clim_range:
+                fout.write(f"# Climatology range: {clim_range[0]} to {clim_range[1]}\n")
+            fout.write("\n")
+            # ---- column headers ----
+            fout.write("date,drop_val\n")
+
+            for d, dv in zip(event_dates, drop_vals):
+                fout.write(f"{pd.to_datetime(d).date()},{dv:.2f}\n")
+
+        print(f"{fname} saved.")
+
     return event_dates, drop_vals
+

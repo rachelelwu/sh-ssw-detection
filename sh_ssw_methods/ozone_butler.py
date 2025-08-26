@@ -1,10 +1,10 @@
 import numpy as np
 import pandas as pd
 import xarray as xr
-
+from pathlib import Path
 # ================= Ozone_Butler =====================
 
-def sh_vortex_ozone_dates(tcO3_filepath, thresh, output_csv=True):
+def sh_vortex_ozone_dates(tcO3_filepath, thresh, output_csv=None):
     """
     Define SH SSW based on ozone concentration. Original script: Butler.
     (rachel wu: only put together the lines of scripts into a single function)
@@ -95,8 +95,17 @@ def sh_vortex_ozone_dates(tcO3_filepath, thresh, output_csv=True):
         errors='coerce'
     ).values.astype('datetime64[D]')
 
+
     if output_csv:
-        filepath = 'sh_ssw_totcol_o3_'+str(thresh)+'DU.csv'
+
+        # if output_csv is True, write in current folder
+        if output_csv is True:
+            out_dir = Path(".")
+        else:
+            out_dir = Path(output_csv)
+            out_dir.mkdir(parents=True, exist_ok=True)
+            
+        filepath = out_dir / f"sh_ssw_totcol_o3_{thresh}DU.csv"
  
         with open(filepath, 'w') as fout:
               fout.write('# Description\n')
@@ -108,7 +117,7 @@ def sh_vortex_ozone_dates(tcO3_filepath, thresh, output_csv=True):
 
     return final, event_dates
 
-def main_ozone_butler(tco3_file, thresh=None, output_csv=True):
+def main_ozone_butler(tco3_file, thresh=None, output_csv=None):
     """
     Detect Southern Hemisphere weak vortex (ozone-based SSW) events.
 

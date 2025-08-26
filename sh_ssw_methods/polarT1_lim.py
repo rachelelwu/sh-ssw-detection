@@ -224,7 +224,7 @@ def polarT2_lim(T_augnov, fw_idx, delT, cdelT, stddv, polarT, pers=5):
     return event_dates
 
 
-def main_polarT1_lim(Tmid_file, fw_dates_file, polarT_file, write_to_file=True):
+def main_polarT1_lim(Tmid_file, fw_dates_file, polarT_file, output_csv=None):
 
     T_augnov, cdelT, delT, stddv = output_Tvars(Tmid_file)
     fw_idx = output_fwidx(fw_dates_file, T_augnov)
@@ -233,7 +233,7 @@ def main_polarT1_lim(Tmid_file, fw_dates_file, polarT_file, write_to_file=True):
 
     event_dates = polarT1_lim(T_augnov, fw_idx, delT, cdelT, stddv, polarT)
     
-    if write_to_file:
+    if output_csv:
         iso_strs = np.datetime_as_string(event_dates, unit='D')
         
         # Prepare the header text
@@ -245,14 +245,23 @@ def main_polarT1_lim(Tmid_file, fw_dates_file, polarT_file, write_to_file=True):
         # of the year and it is not detected within 60 days of an earlier event of the
         # year
         #"""
+
+        # if output_csv is True, write in current folder
+        if output_csv is True:
+            out_dir = Path(".")
+        else:
+            out_dir = Path(output_csv)
+            out_dir.mkdir(parents=True, exist_ok=True)
+            
+        filepath = out_dir / F"ShenEtAl2022_org_Tgrad_1979_2021_era5.txt"
         
         # Write to file
-        with open("ShenEtAl2022_org_Tgrad_1979_2021_era5.txt", "w") as f:
+        with open(filepath, "w") as f:
             f.write(header + "\n")
             for d in iso_strs:
                 f.write(f"{d}\n")
 
-            print("ShenEtAl2022_org_Tgrad_1979_2021_era5.txt saved.")
+            print("%s saved." % filepath)
 
     return event_dates
     

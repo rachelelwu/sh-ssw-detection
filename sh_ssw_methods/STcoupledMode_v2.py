@@ -5,7 +5,7 @@ from eofs.xarray import Eof
 import pandas as pd
 import re
 
-
+from pathlib import Path
 # ------------------------------
 # Settings
 # ------------------------------
@@ -96,12 +96,19 @@ def classify_stmi_events(inFile, thresh=None, save_txt=True, save_mask=True):
     stmi.loc[stmi['STMI'] >  thresh, 'mask'] = 'weak'
     stmi.loc[stmi['STMI'] < -thresh, 'mask'] = 'strong'
 
-    # --- Prepare file names ---
-    outFile  = f"STmode_{startYear}-{endYear}_thr±{thresh:.1f}.txt" if save_txt else None
-    maskFile = f"STmode_mask_{startYear}-{endYear}_thr±{thresh:.1f}.csv" if save_mask else None
 
     # --- Save formatted text file ---
     if save_txt:
+        if save_txt is True:
+            out_dir = Path(".")
+        else:
+            out_dir = Path(save_txt)
+            out_dir.mkdir(parents=True, exist_ok=True)
+
+        # --- Prepare file names ---
+        outFile  = out_dir / f"STmode_{startYear}-{endYear}_thr±{thresh:.1f}.txt" 
+        
+
         weak_years   = stmi.loc[stmi['mask'] == 'weak', 'year'].tolist()
         strong_years = stmi.loc[stmi['mask'] == 'strong', 'year'].tolist()
         with open(outFile,'w') as fle:
@@ -117,6 +124,13 @@ def classify_stmi_events(inFile, thresh=None, save_txt=True, save_mask=True):
     
     # --- Save mask CSV ---
     if save_mask:
+        if save_txt is True:
+            out_dir = Path(".")
+        else:
+            out_dir = Path(save_txt)
+            out_dir.mkdir(parents=True, exist_ok=True)
+            
+        maskFile = out_dir / f"STmode_mask_{startYear}-{endYear}_thr±{thresh:.1f}.csv" 
         stmi[['year','STMI','mask']].to_csv(maskFile, index=False)
 
     return stmi

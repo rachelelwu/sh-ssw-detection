@@ -5,7 +5,7 @@ from datetime import date, timedelta, datetime
 import xarray as xr
 import csv
 
-
+from pathlib import Path
 
 def load_u1060S_with_anoms(nc_path, var='u1060S', base_start='1979-01-01', base_end='2023-12-31'):
     """
@@ -65,13 +65,13 @@ def iden_ssw_uanom(data_df, anom_df, wp0, thres, clim_start, clim_end, output_cs
     
     csv_header = ['year','month','day','u1060S']
     
-    outfile=f'u{wp0}60S_{dataset}_anom.csv'
-    with open(outfile, 'w') as file:
-        writer = csv.writer(file)
-        writer.writerow(csv_header)
-        for i in range(ndd):
-            row=[yrs[i],mns[i],dds[i],u10a[i]]
-            writer.writerow(row)
+    # outfile=f'u{wp0}60S_{dataset}_anom.csv'
+    # with open(outfile, 'w') as file:
+    #     writer = csv.writer(file)
+    #     writer.writerow(csv_header)
+    #     for i in range(ndd):
+    #         row=[yrs[i],mns[i],dds[i],u10a[i]]
+    #         writer.writerow(row)
     
 
     # -20 m/s for 10 hPa
@@ -110,7 +110,15 @@ def iden_ssw_uanom(data_df, anom_df, wp0, thres, clim_start, clim_end, output_cs
     wperiod = '%s-%s' % (clim_start[:4], clim_end[:4])
 
     if output_csv: 
-        outfile=f'ssw_u{wp0}60S_{dataset}_anom.csv'
+
+        # if output_csv is True, write in current folder
+        if output_csv is True:
+            out_dir = Path(".")
+        else:
+            out_dir = Path(output_csv)
+            out_dir.mkdir(parents=True, exist_ok=True)
+            
+        outfile= out_dir / f'ssw_u{wp0}60S_{dataset}_anom.csv'
         
         with open(outfile, "w", newline="") as file:
             file.write(f"# data: {dataset} {wperiod}, daily means from 00,06,12,18 UTC instantaneous.\n")
@@ -192,7 +200,16 @@ def iden_ssw_utend(data_df, anom_df, wp0, thres, clim_start, clim_end, output_cs
 
     wperiod = '%s-%s' % (clim_start[:4], clim_end[:4])
     if output_csv: 
-        outfile=f'ssw_u{wp0}60S_{dataset}_tend.csv'
+
+        # if output_csv is True, write in current folder
+        if output_csv is True:
+            out_dir = Path(".")
+        else:
+            out_dir = Path(output_csv)
+            out_dir.mkdir(parents=True, exist_ok=True)
+            
+        outfile= out_dir / f'ssw_u{wp0}60S_{dataset}_tend.csv'
+        
         with open(outfile, "w", newline="") as file:
             file.write(f"# data: {dataset} {wperiod}, daily means from 00,06,12,18 UTC instantaneous.\n")
             file.write(f"# definition: U_tendency < {wthres} at {wp0} hPa and -60S. At least 10 days "
@@ -219,7 +236,7 @@ def iden_ssw_utend(data_df, anom_df, wp0, thres, clim_start, clim_end, output_cs
 
     return dates_array
 
-def main_uanom(u1060f, wp0, thres=None, clim_range=['1979-01-01','2023-12-31'], output_csv=True):
+def main_uanom(u1060f, wp0, thres=None, clim_range=['1979-01-01','2023-12-31'], output_csv=None):
     """
     Detect Southern Hemisphere SSW events based on zonal mean zonal wind at 10hPa/50hPa using anomalies.
 
@@ -266,7 +283,7 @@ def main_uanom(u1060f, wp0, thres=None, clim_range=['1979-01-01','2023-12-31'], 
 
 
 
-def main_utend(u1060f, wp0, thres=None, clim_range=['1979-01-01','2023-12-31'], output_csv=True):
+def main_utend(u1060f, wp0, thres=None, clim_range=['1979-01-01','2023-12-31'], output_csv=None):
     """
     Detect Southern Hemisphere SSW events based on zonal mean zonal wind at 10hPa/50hPa using tendencies. 
 

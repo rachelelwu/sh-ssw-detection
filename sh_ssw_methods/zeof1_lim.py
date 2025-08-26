@@ -2,6 +2,7 @@ import pandas as pd
 
 import numpy as np
 import os
+from pathlib import Path
 
 def select_pc1_events(lv=50, basepath=".", thresh=1.0, persistence=None, minsep=60, output_csv=True):
     """
@@ -88,7 +89,15 @@ def select_pc1_events(lv=50, basepath=".", thresh=1.0, persistence=None, minsep=
 
     # --- optional CSV output ---
     if output_csv:
-        outfile = f"EOF1.Z{lv}.gt{thresh:.1f}.csv"
+
+        # if output_csv is True, write in current folder
+        if output_csv is True:
+            out_dir = Path(".")
+        else:
+            out_dir = Path(output_csv)
+            out_dir.mkdir(parents=True, exist_ok=True)
+            
+        outfile = out_dir / f"EOF1.Z{lv}.gt{thresh:.1f}.csv"
         with open(outfile, "w") as fout:
             fout.write("# Daily data projected onto EOF1 of GPHA calculated for each month\n")
             fout.write(f"# (June–December) at {lv} hPa over the domain of 20–90S\n")
