@@ -28,7 +28,7 @@ Currently implemented functions include:
 
 #### 📂 Repository structure
 
-<pre> ``` 
+```
 ├── config.py # Central configuration: input/output paths, parameters
 ├── main.ipynb # Example notebook demonstrating detection methods
 ├── functions/ # Python modules for event detection
@@ -37,7 +37,7 @@ Currently implemented functions include:
 │ └── event_dates_csv/ # CSV/ txt files with detected event dates
 └── README.md
   
-  ``` </pre>
+```
 
 ---
 
