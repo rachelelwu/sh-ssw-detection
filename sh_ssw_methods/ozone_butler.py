@@ -115,6 +115,8 @@ def sh_vortex_ozone_dates(tcO3_filepath, thresh, output_csv=None):
               fout.write('# MERRA2\n')
               final.to_csv(fout,index=False)
 
+              print("%s saved." % f"sh_ssw_totcol_o3_{thresh}DU.csv")
+
     return final, event_dates
 
 def main_ozone_butler(tco3_file, thresh=None, output_csv=None):
@@ -155,7 +157,7 @@ def main_ozone_butler(tco3_file, thresh=None, output_csv=None):
     if thresh is None:
         thresh = 40
 
-    print(thresh)
+    # print(thresh)
     final, event_dates = sh_vortex_ozone_dates(tco3_file, thresh, output_csv)
 
     return event_dates

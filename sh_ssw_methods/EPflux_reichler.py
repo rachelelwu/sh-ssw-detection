@@ -289,7 +289,7 @@ def main_EPflux_reichler(FN, DT=None, DU=None, output_csv=None):
                     dates.append(d)
 
         
-        print(f"{file} saved.")
+        print(f"FZ{HLEVEL}_SH_{MODEL}_tau{DT}_sfz{DU}.csv saved.")
 
     dates = np.array(dates, dtype="datetime64[D]")  # daily precision
 

@@ -104,6 +104,6 @@ def select_pc1_events(lv=50, basepath=".", thresh=1.0, persistence=None, minsep=
             fout.write(f"# standardized daily PC1 > {thresh}, which persists for {persistence+1} days\n")
             fout.write(f"# two events should be separated by {minsep} days\n")
             pd.Series(event_dates).to_csv(fout, index=False, header=["Date"])
-        print(f"Saved {len(event_dates)} events to {outfile}")
+        print(f"Saved {len(event_dates)} events to EOF1.Z{lv}.gt{thresh:.1f}.csv")
 
     return event_dates

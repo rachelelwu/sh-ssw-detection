@@ -261,7 +261,7 @@ def main_polarT1_lim(Tmid_file, fw_dates_file, polarT_file, output_csv=None):
             for d in iso_strs:
                 f.write(f"{d}\n")
 
-            print("%s saved." % filepath)
+            print("%s saved." % F"ShenEtAl2022_org_Tgrad_1979_2021_era5.txt")
 
     return event_dates
     

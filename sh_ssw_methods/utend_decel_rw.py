@@ -314,7 +314,7 @@ def detect_u_decel(
             for d, dv in zip(event_dates, drop_vals):
                 fout.write(f"{pd.to_datetime(d).date()},{dv:.2f}\n")
 
-        print(f"{fname} saved.")
+        print(f"u{wp0}_60S_{mode}_events.csv saved.")
 
     return event_dates, drop_vals
 
