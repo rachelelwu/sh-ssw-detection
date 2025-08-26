@@ -22,7 +22,7 @@ Currently implemented functions include:
   - `ozone_butler`  
 - **Wind deceleration (Wu)**  
   - `u_decel_wu_10`  
-- … and more under development
+- … .....
 
 ---
 
