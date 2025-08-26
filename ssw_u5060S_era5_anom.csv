@@ -1,0 +1,29 @@
+# data: era5 1979-2020, daily means from 00,06,12,18 UTC instantaneous.
+# definition: U_anomaly < -11 at 50 hPa and -60S. At least 10 days of positive U_full required after SSW date to separate from the final warming.
+# two events are the same if occurring within 20 days.
+# U_anomaly defined as departure from the climatology over 1979-2020 for the calendar day.
+year,month,day
+1979,10,22
+1980,07,28
+1981,07,28
+1982,10,07
+1985,06,12
+1988,09,25
+1994,05,30
+1995,07,14
+1996,09,13
+1999,06,16
+2000,10,27
+2002,09,02
+2003,10,31
+2004,10,15
+2005,10,08
+2007,07,05
+2008,08,04
+2012,10,09
+2013,10,02
+2013,10,30
+2014,10,10
+2016,10,18
+2017,10,26
+2019,09,13

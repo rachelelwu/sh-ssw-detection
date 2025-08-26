@@ -1,0 +1,27 @@
+# Description
+# total column ozone 65-90S anomalies > 40 DU
+# Must persist for at least 3 days to be event
+# Events must be separated by >20 days
+# MERRA2
+Year,Month,Day
+1980,11,26
+1981,9,21
+1981,11,20
+1982,10,4
+1983,11,3
+1984,11,2
+1986,9,5
+1986,11,13
+1988,9,24
+1988,10,25
+1991,11,18
+1994,8,16
+2000,11,6
+2002,9,22
+2003,11,3
+2005,11,12
+2012,10,9
+2013,11,2
+2016,11,23
+2017,11,7
+2019,9,8

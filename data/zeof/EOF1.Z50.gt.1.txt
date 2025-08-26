@@ -1,0 +1,32 @@
+# Daily data projected onto EOF1 of GPHA calculated for each month
+(June-December) at 50 hPa over the domain of 20-90S
+# standardized daily PC1 > 1, which persists for 10 days
+# two events should be separated by 60 days
+1979,10,10
+1980,7,19
+1980,11,22
+1981,7,11
+1982,12,12
+1985,6,8
+1986,7,24
+1988,8,27
+1989,12,20
+1990,7,15
+1991,11,17
+1993,6,10
+1994,11,30
+1995,7,17
+1996,8,19
+1997,6,19
+2000,11,1
+2002,7,11
+2006,6,8
+2007,7,2
+2009,6,27
+2012,10,10
+2013,10,17
+2014,8,25
+2016,8,5
+2016,11,11
+2019,6,12
+2019,9,5

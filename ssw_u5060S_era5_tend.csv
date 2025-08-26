@@ -1,0 +1,28 @@
+# data: era5 1979-2020, daily means from 00,06,12,18 UTC instantaneous.
+# definition: U_tendency < -19 at 50 hPa and -60S. At least 10 days of positive U_full required after SSW date to separate from the final warming.
+# two events are the same if occurring within 20 days.
+# U_tendency defined as the U_full difference between +/-7 days from the current day.
+year,month,day
+1982,10,01
+1983,10,31
+1984,10,29
+1985,10,29
+1988,10,21
+1992,09,26
+1992,10,22
+1993,10,17
+1995,10,07
+1997,10,29
+1999,10,30
+2002,09,17
+2002,10,29
+2003,10,25
+2004,10,08
+2005,10,05
+2009,10,08
+2011,10,30
+2014,10,04
+2014,10,27
+2016,09,27
+2017,09,08
+2017,10,29
