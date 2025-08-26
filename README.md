@@ -4,7 +4,7 @@ Module that contain different defintions to detect sudden stratospheric warmings
 
 Currently implemented functions include:
 
-- **ZEOF index**  
+- **ZEOF index (Lim)**  
   - `zeof1_lim_lv1`  
   - `zeof1_lim_lv10`  
   - `zeof1_lim_lv50`  
