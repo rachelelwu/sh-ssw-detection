@@ -63,6 +63,14 @@ ze_lv50 = ssw.zeof1_lim(**params["zeof1_lim_lv50"])
 ```
 ---
 
+#### 📌 Required packages
+
+`xarray`, `pandas`, `numpy`
+
+`eofs` is included within the package.
+
+---
+
 #### 📌 Notes
 
 For now, events are identified for the period 1979-2020.
