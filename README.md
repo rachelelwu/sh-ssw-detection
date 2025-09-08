@@ -1,6 +1,6 @@
 ### sh-ssw-detection
 
-Module that contain different defintions to detect sudden stratospheric warmings in the Southern Hemisphere. 
+(Still work in progress...) Module that contain different defintions to detect sudden stratospheric warmings in the Southern Hemisphere. 
 
 Currently implemented functions include:
 
