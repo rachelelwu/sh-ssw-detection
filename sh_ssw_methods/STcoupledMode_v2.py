@@ -1,6 +1,6 @@
 import xarray as xr
 import numpy as np
-from eofs.xarray import Eof
+from .eofs.xarray import Eof
 
 import pandas as pd
 import re
