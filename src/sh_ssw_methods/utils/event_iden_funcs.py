@@ -55,6 +55,7 @@ def build_events_df(
     level_hpa: float | None = None,
     latitude: float | None = None,
     lat_band: str | None = None,
+    notes: str | None = None,
 ) -> pd.DataFrame:
     """
     Create a unified event table from arrays/iterables.
@@ -76,12 +77,13 @@ def build_events_df(
     df["definition"] = definition
     df["data_source"] = data_source
 
+
     # Optional metadata
     df["threshold"] = threshold
     df["level_hpa"] = level_hpa
     df["latitude"] = latitude
     df["lat_band"] = lat_band
-   
+    df["notes"] = notes
 
     # Enforce dtypes
     for col in ["method", "definition", "data_source", "lat_band"]:

@@ -2,7 +2,7 @@
 from __future__ import annotations
 import xarray as xr
 import pandas as pd
-from ..utils import (
+from .utils import (
     cos_weighted_mean,
     remove_doy_climatology,
     remove_yearly_mean, 
@@ -32,7 +32,7 @@ def detect_ozone_threshold(
     cap = cos_weighted_mean(da.sel({lat_dim: slice(*lat_band)}), dim=lat_dim)
 
     # 3. compute anom from daily climatology
-    anom = remove_doy_climatology(remove_dayofyear_climatology(cap, time_dim), time_dim)
+    anom = remove_doy_climatology(cap, time_dim)
 
     # 4. remove trend by removing yearly mean
     fin = remove_yearly_mean(anom)
@@ -49,17 +49,18 @@ def detect_ozone_threshold(
     # 8. enforce minimum gap, events between need to separate at least 20 days
     tpersist = enforce_min_gap(persist, min_gap_days=20)
 
+    event_dates = tpersist["first"]
     
     # 9. output into df
     # Ozone threshold events (dates only)
     events_df = build_events_df(
-        dates=runs["first"],
+        dates=event_dates,
         method="ozone_threshold", #### change here the name later
         definition=f"ozone_du{int(thresh_du)}_{int(lat_band[0])}to{int(lat_band[1])}S",
-        source=data_source or "",
+        data_source=data_source or "",
         threshold=thresh_du,
         lat_band=str(list(lat_band)),
         notes=f"min_persist={min_persist_days}d; min_gap={min_gap_days}d",
     )
     
-    return events_df, dates
+    return events_df, event_dates.values
