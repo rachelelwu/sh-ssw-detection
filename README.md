@@ -29,13 +29,21 @@ Currently implemented functions include:
 #### 📂 Repository structure
 
 ```
-├── config.py # Central configuration: input/output paths, parameters
-├── main.ipynb # Example notebook demonstrating detection methods
-├── functions/ # Python modules for event detection
-├── data/ # Input data (NetCDF, txt, bin) [not version controlled]
-├── outputs/
-│ └── event_dates_csv/ # CSV/ txt files with detected event dates
-└── README.md
+|-- data
+|   `-- zeof
+|-- sh_ssw_methods
+|   `-- eofs
+|       |-- examples
+|       |-- multivariate
+|       |-- tests
+|       `-- tools
+|-- src
+|   |-- outputs
+|   |   `-- event_dates_csv
+|   |-- sh_ssw_methods
+|   |-- sh_ssw_methods2
+|   `-- utils
+`-- tests
   
 ```
 
