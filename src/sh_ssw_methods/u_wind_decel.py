@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import xarray as xr
 
-from utils.event_iden_funcs import (
+from .utils.event_iden_funcs import (
     build_events_df,
 )
 
