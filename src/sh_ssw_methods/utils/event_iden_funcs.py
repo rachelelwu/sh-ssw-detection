@@ -1,3 +1,5 @@
+# /src/sh_ssw_methods/utils/event_iden_funcs.py
+
 from __future__ import annotations
 import numpy as np
 import pandas as pd

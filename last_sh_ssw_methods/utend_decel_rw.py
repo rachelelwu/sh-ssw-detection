@@ -4,7 +4,6 @@
 # Module for functions related to deceleration event analysis
 # - Algorithm used in Wu et al. (2022) to identify wind acceleration and deceleraiton events
 #
-# Rachel Wu, rachel.wu@env.ethz.ch
 
 import numpy as np
 
