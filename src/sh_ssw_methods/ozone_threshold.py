@@ -25,6 +25,12 @@ def detect_ozone_threshold(
     data_source: str | None = None
 ):
 
+    # raise error if input is not xr.DataArray
+    if not isinstance(da, xr.DataArray):
+        raise TypeError(
+            "detect_ozone_threshold expects an xarray.DataArray. "
+            "If you have a Dataset, select a variable first, e.g. ds['tcO3']."
+        )
 
     # polar cap weighted
     cap = cos_weighted_mean(da.sel({lat_dim: slice(*lat_band)}), dim=lat_dim)
