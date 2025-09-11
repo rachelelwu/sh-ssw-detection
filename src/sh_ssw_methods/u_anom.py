@@ -3,6 +3,7 @@
 from __future__ import annotations
 import xarray as xr
 import pandas as pd
+import numpy as np
 from .utils import (
     remove_doy_climatology,
     build_events_df
@@ -56,7 +57,7 @@ def detect_ssw_u_anom(
     events_df = build_events_df(
         dates=event_dates,
         method="u_anom", #### change here the name later
-        definition=f"u_anom_{int(thres)}m/s_{int(level_hPa)}hPa_{int(np.abs(lat_band))}S",
+        definition=f"u_anom_{int(thres)}m/s_{int(level_hpa)}hPa_{int(abs(latitude))}S",
         data_source=data_source or "",
         threshold=f"{int(thres)}m/s",
         level_hpa=str(level_hpa),
