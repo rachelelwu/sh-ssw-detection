@@ -13,7 +13,7 @@ def detect_u_decel_events(
     *,
     # Window definition (in DAYS; code infers samples from the time step)
     wdw: int = 10,
-    # Choose ONE of the two thresholding modes :
+    # Choose ONE of the two thresholding modes:
     drop_per_day: float | None = None,   # fixed threshold (m/s per day)
     percentile: float | None = None,     # e.g., 60 -> keep strongest 40% (by magnitude)
     # Algorithm controls
@@ -127,7 +127,8 @@ def detect_u_decel_events(
                 selected_onsets[-1] = onset
                 selected_diffs[-1] = dval
 
-    event_dates = pd.DatetimeIndex(selected_onsets)
+    # take the last day of the 10-day window as event dates
+    event_dates = pd.DatetimeIndex(selected_onsets)+ pd.Timedelta(days=wdw)
     drop_vals = np.asarray(selected_diffs)  # signed: negative (decel) / positive (accel)
 
     # --- 5) Percentile mode: compute magnitude cutoff and filter
@@ -186,7 +187,7 @@ def detect_u_decel_events(
             "window_days": np.repeat(window_days, len(event_dates)),
             # "threshold_total_mag": (
             #     [] if used_threshold_total is None else np.repeat(used_threshold_total, len(event_dates))
-            # ),
+            #),
         },
     )
 
