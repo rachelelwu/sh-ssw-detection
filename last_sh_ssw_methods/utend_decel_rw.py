@@ -275,14 +275,17 @@ def detect_u_decel(
     # Load data
     ds = xr.open_dataset(u1060f)
     da = ds[varname].sortby("time")
+    
+    # Convert from 6-hourly to daily mean
+    da_daily = da.resample(time='1D').mean()
 
     # Apply time subsetting if requested
     if clim_range is not None:
         start, end = pd.to_datetime(clim_range[0]), pd.to_datetime(clim_range[1])
-        da = da.sel(time=slice(start, end))
+        da_daily = da_daily.sel(time=slice(start, end))
 
-    U_data = da.values
-    U_time = dates.date2num(da["time"].values)
+    U_data = da_daily.values
+    U_time = dates.date2num(da_daily["time"].values)
 
     # Core finder
     onset_nums, drop_vals = find_decel(U_data, U_time, drop, nxtevnt, wdw, mode)
