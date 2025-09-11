@@ -1,4 +1,4 @@
-# src/sh_ssw_methods/methods/ozone_threshold.py
+# src/sh_ssw_methods/ozone_threshold.py
 from __future__ import annotations
 import xarray as xr
 import pandas as pd
