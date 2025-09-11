@@ -53,7 +53,6 @@ def detect_ssw_u_anom(
     u_anom_event = np.array(u_min1)
     
     # output into df
-    # Ozone threshold events (dates and ozone value at onset)
     events_df = build_events_df(
         dates=event_dates,
         method="u_anom", #### change here the name later
