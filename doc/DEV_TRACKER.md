@@ -15,7 +15,7 @@ src/
 #### Available Functions
 
 **`zeof.py`**
-* `detect_pc1_events`: identify events from pc1 that are already computed and outputed as daily.pc1.*.txt
+* `detect_pc1_events(basepath="sh_ssw_methods/processed/")`: identify events from pc1 that are already computed and outputed as daily.pc1.*.txt
     * *original function:* `ZEOF1_Lim/event_selection.ncl`
 * ⚠️ to modify: to directly take z anomalies to output pc1, and only then uses `detect_pc1_events` to identify events
     * *original functions:*
