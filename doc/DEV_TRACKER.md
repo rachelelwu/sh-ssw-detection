@@ -1,4 +1,14 @@
+## Project Structure
 
+The python functions are stored in `src/sh_ssw_methods`, while `src/test_main.ipynb` serves as the primary validation sandbox.
+
+```text
+src/
+├── test_main.ipynb          # Entry point for testing and validation
+└── sh_ssw_methods/          # Main package containing NCL-ported logic
+    ├── __init__.py          # Exposes functions for easy import
+    ├── vorticity.py         # Specific calculation modules
+    └── thermodynamics.py
 
 | Original Function | Author | Python Function | Status | Comments |
 | :--- | :--- | :--- | :--- | :--- |
