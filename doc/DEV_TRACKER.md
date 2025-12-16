@@ -11,6 +11,7 @@ src/
     └── .py
 
 
+```
 ## Available Functions
 
 ### `vorticity.py`
@@ -23,7 +24,6 @@ src/
 * **`calc_potential_temp(ds)`**: Converts temperature to theta.
     * *NCL original:* `pot_temp`
 
-```
 | Original Function | Author | Python Function | Status | Comments |
 | :--- | :--- | :--- | :--- | :--- |
 | FZ100 | thomas |  | 🛑 Todo |  |
