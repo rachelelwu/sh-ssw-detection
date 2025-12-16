@@ -14,13 +14,13 @@ src/
 ```
 #### Available Functions
 
-##### `vorticity.py`
+**`vorticity.py`
 * **`compute_vorticity(ds)`**: Calculates relative vorticity. Returns a Pandas DataFrame.
     * *NCL original:* `uv2vr_cfd`
 * **`compute_circulation(ds)`**: Computes circulation over a specific region.
     * *NCL original:* Custom script
-
-##### `thermodynamics.py`
+      
+** `thermodynamics.py`
 * **`calc_potential_temp(ds)`**: Converts temperature to theta.
     * *NCL original:* `pot_temp`
 
