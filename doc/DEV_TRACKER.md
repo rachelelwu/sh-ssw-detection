@@ -14,11 +14,10 @@ src/
 ```
 #### Available Functions
 
-**`vorticity.py`**
-* `compute_vorticity(ds)`: Calculates relative vorticity. Returns a Pandas DataFrame.
-    * *NCL original:* `uv2vr_cfd`
-* `compute_circulation(ds)`: Computes circulation over a specific region.
-    * *NCL original:* Custom script
+**`zeof.py`**
+* `detect_pc1_events`: identify events from pc1 that are already computed and outputed as .txt
+    * *original function:* `ZEOF1_Lim/event_selection.ncl`
+
       
 **`thermodynamics.py`**
 * `calc_potential_temp(ds)`: Converts temperature to theta.
