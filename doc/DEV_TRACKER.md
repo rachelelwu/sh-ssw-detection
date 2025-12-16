@@ -18,7 +18,9 @@ src/
 * `detect_pc1_events`: identify events from pc1 that are already computed and outputed as daily.pc1.*.txt
     * *original function:* `ZEOF1_Lim/event_selection.ncl`
 * ⚠️ to modify: to directly take z anomalies to output pc1, and only then uses `detect_pc1_events` to identify events
-    * *original functions:* `ZEOF1_Lim/Z.month.EOF.ncl` - to identify EOF1 from monthly z data, `ZEOF1_Lim/daily.pc1.ncl` - to project EOF1 identified from monthly data to daily z anomalies to get daily pc1  
+    * *original functions:*
+    * `ZEOF1_Lim/Z.month.EOF.ncl` - to identify EOF1 from monthly z data
+    * `ZEOF1_Lim/daily.pc1.ncl` - to project EOF1 identified from monthly data to daily z anomalies to get daily pc1  
 
       
 **`thermodynamics.py`**
