@@ -17,6 +17,7 @@ src/
 **`zeof.py`**
 * `detect_pc1_events`: identify events from pc1 that are already computed and outputed as .txt
     * *original function:* `ZEOF1_Lim/event_selection.ncl`
+* ⚠️ to modify: to directly take z anomalies to output pc1, and only then uses `detect_pc1_events` to identify events
 
       
 **`thermodynamics.py`**
