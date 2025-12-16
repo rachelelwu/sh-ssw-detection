@@ -25,7 +25,7 @@ src/
       
 **`ozone_threshold.py`**
 * `detect_ozone_threshold(tcO3:xr.DataArray)`: 
-    * *original function:* `pot_temp`
+    * *original function:* ``
 
 | Original Function | Author | Python Function | Status | Comments |
 | :--- | :--- | :--- | :--- | :--- |
