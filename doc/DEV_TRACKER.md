@@ -21,7 +21,7 @@ src/
     * *original functions:*
     * `ZEOF1_Lim/Z.month.EOF.ncl` - to identify EOF1 from monthly z data
     * `ZEOF1_Lim/daily.pc1.ncl` - to project EOF1 identified from monthly data to daily z anomalies to get daily pc1  
-    * working .ipynb: `src/sh_ssw_methods/zeof_dev_attempt_dec2025.ipynb`
+    * working .ipynb on translating into Python: `src/sh_ssw_methods/zeof_dev_attempt_dec2025.ipynb`
       
 **`thermodynamics.py`**
 * `calc_potential_temp(ds)`: Converts temperature to theta.
