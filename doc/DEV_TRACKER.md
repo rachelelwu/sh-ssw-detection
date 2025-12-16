@@ -23,9 +23,9 @@ src/
     * `ZEOF1_Lim/daily.pc1.ncl` - to project EOF1 identified from monthly data to daily z anomalies to get daily pc1  
     * working .ipynb on translating into Python: `src/sh_ssw_methods/zeof_dev_attempt_dec2025.ipynb`
       
-**`thermodynamics.py`**
-* `calc_potential_temp(ds)`: Converts temperature to theta.
-    * *NCL original:* `pot_temp`
+**`ozone_threshold.py`**
+* `detect_ozone_threshold(tcO3:xr.DataArray)`: 
+    * *original function:* `pot_temp`
 
 | Original Function | Author | Python Function | Status | Comments |
 | :--- | :--- | :--- | :--- | :--- |
