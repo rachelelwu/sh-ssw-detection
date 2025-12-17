@@ -83,10 +83,10 @@ src/
 
 
 **`STmode.py`** ✅
-* **Function**: ``
+* **Function**: `detect_stmi_events(stcmI_file)`
 * **Method**: 
-* **Input Data**: 
-* **Pre-processing**: Uses `compute_stcmI` and output required files for event detection
+* **Input Data**: monthly u: `processed/era5_uwind_all_lv_monthly_1979_2023.nc`
+* **Pre-processing**: Uses `compute_stcmI` and output stcmI indices for event detection
 * **Legacy Source**: ``
 
 
