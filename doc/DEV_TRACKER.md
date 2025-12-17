@@ -23,6 +23,7 @@ src/
 `preprocessing/prepare_polarT_files.py`
 
 
+🔴 **Not Started**
 
 
 
@@ -76,6 +77,14 @@ src/
 * **Method**: Detect events based on temperature files and final warming dates, temperature and final warming dates can be computed from temp and u files
 * **Input Data**: temp: `processed/era5_temp_sh_10hPa_1979_2023.nc`; u: `data/u1060s_era5_1959_2023.nc`
 * **Pre-processing**: Uses `output_polarT_prefiles`, `detect_fsw_SH` and output required files for event detection
+* **Legacy Source**: ``
+
+
+**`STmode.py`** ✅
+* **Function**: ``
+* **Method**: 
+* **Input Data**: 
+* **Pre-processing**: Uses `` and output required files for event detection
 * **Legacy Source**: ``
 
 
