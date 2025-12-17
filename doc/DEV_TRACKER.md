@@ -1,18 +1,28 @@
-#### Project Structure
+#### Functions translation tracker: `sh_ssw_methods`
 
 The python functions are stored in `src/sh_ssw_methods`, while `src/test_main.ipynb` is the script now to call the python functions.
 
 ```text
 src/
-├── test_main.ipynb          # Entry point for testing and validation
-└── sh_ssw_methods/          # Main package containing ssw identification functions
-    ├── __init__.py          # Exposes functions for easy import
-    ├── .py         
-    └── .py
-
+├── test_main.ipynb               # Entry point for testing and validation
+└── sh_ssw_methods/               # Main package containing ssw identification functions
+    ├── __init__.py               # Exposes functions for easy import
+    ├── zeof.py                   # (WIP) Zonal EOF analysis
+    ├── ozone_threshold.py        # Ozone threshold detection
+    ├── [other_modules].py        # (Add specific filenames here as created)
+    └── preprocessing/            # Data preparation and formatting utilities
+        ├── __init__.py
+        └── prepare_polarT_files.py
 
 ```
-#### Available Functions
+#### 2. Module Status & Details
+
+⚙️ **Preprocessing functions**
+
+
+`preprocessing/prepare_polarT_files.py`
+
+
 
 🟠 **In Progress (WIP)**
 
@@ -48,6 +58,20 @@ src/
 * **Function**: `detect_ssw_u_anom(u_daily: xr.DataArray, thres)`
 * **Method**: Detects events based on threshold (`thres`) (`thres`=-11 for 50hPa, `thres`=-20 for 10hPa)
 * **Data**: 50hPa: `data/u5060s_era5_1959_2023.nc`; 10hPa: `data/u1060s_era5_1959_2023.nc`
+* **Legacy Source**: ``
+
+
+**`u_tend.py`** ✅
+* **Function**: `detect_ssw_u_tend(u_daily: xr.DataArray, thres)`
+* **Method**: Detects events based on threshold (`thres`) (`thres`=-19 for 50hPa, `thres`=-35 for 10hPa)
+* **Data**: 50hPa: `data/u5060s_era5_1959_2023.nc`; 10hPa: `data/u1060s_era5_1959_2023.nc`
+* **Legacy Source**: ``
+
+
+**`polarT.py`** ✅
+* **Function**: `detect_ssw_polarT(Tband_file, polarT_file, fsw_file)`
+* **Method**: 
+* **Data**: 
 * **Legacy Source**: ``
 
 
