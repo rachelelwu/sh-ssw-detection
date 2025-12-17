@@ -64,14 +64,14 @@ src/
 * **Function**: `detect_ssw_u_anom(u_daily: xr.DataArray, thres)`
 * **Method**: Detects events based on threshold (`thres`) (`thres`=-11 for 50hPa, `thres`=-20 for 10hPa)
 * **Input Data**: 50hPa: `data/u5060s_era5_1959_2023.nc`; 10hPa: `data/u1060s_era5_1959_2023.nc`
-* **Legacy Source**: ``
+* **Legacy Source**: `u1060s_Karpechko/u1060S_jra55_analyze.ipynb`
 
 
 **`u_tend.py`** ✅
 * **Function**: `detect_ssw_u_tend(u_daily: xr.DataArray, thres)`
 * **Method**: Detects events based on threshold (`thres`) (`thres`=-19 for 50hPa, `thres`=-35 for 10hPa)
 * **Input Data**: 50hPa: `data/u5060s_era5_1959_2023.nc`; 10hPa: `data/u1060s_era5_1959_2023.nc`
-* **Legacy Source**: ``
+* **Legacy Source**: `u1060s_Karpechko/u1060S_jra55_analyze.ipynb`
 
 
 **`polarT.py`** ✅
@@ -79,7 +79,7 @@ src/
 * **Method**: Detect events based on temperature files and final warming dates, temperature and final warming dates can be computed from temp and u files
 * **Input Data**: temp: `processed/era5_temp_sh_10hPa_1979_2023.nc`; u: `data/u1060s_era5_1959_2023.nc`
 * **Pre-processing**: Uses `output_polarT_prefiles`, `detect_fsw_SH` and output required files for event detection
-* **Legacy Source**: ``
+* **Legacy Source**: `polarT_Lim/ShenEtAl2022.org.Tgrad.ncl` ??? check which function you translated 
 
 
 **`STmode.py`** ✅
@@ -87,7 +87,7 @@ src/
 * **Method**: 
 * **Input Data**: monthly u: `processed/era5_uwind_all_lv_monthly_1979_2023.nc`
 * **Pre-processing**: Uses `compute_stcmI` and output stcmI indices for event detection
-* **Legacy Source**: ``
+* **Legacy Source**: `STCoupledMode_Lim/S-TcoupledMode.ncl`
 
 
 
