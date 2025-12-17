@@ -14,7 +14,7 @@ src/
 ```
 #### Available Functions
 
-**`zeof.py`**
+**`zeof.py`** ⚠️ 
 * `detect_pc1_events(basepath="sh_ssw_methods/processed/")`: identify events from pc1 that are already computed and outputed as daily.pc1.*.txt
     * *original script:* `ZEOF1_Lim/event_selection.ncl`
 * ⚠️ to modify: to directly take z anomalies to output pc1, and only then uses `detect_pc1_events` to identify events
@@ -23,7 +23,7 @@ src/
     * `ZEOF1_Lim/daily.pc1.ncl` - to project EOF1 identified from monthly data to daily z anomalies to get daily pc1  
     * working .ipynb on translating into Python: `src/sh_ssw_methods/zeof_dev_attempt_dec2025.ipynb`
       
-**`ozone_threshold.py`**
+**`ozone_threshold.py`** ✅
 * `detect_ozone_threshold(tcO3:xr.DataArray)`: detect events based on criterion on ozone threshold (thres_du)
     * *original script:* `Ozone_Butler/sh_vortex_ozone_date.ipynb`
 
