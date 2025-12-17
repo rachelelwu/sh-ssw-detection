@@ -15,15 +15,20 @@ src/
         └── prepare_polarT_files.py
 
 ```
-#### 2. Module Status & Details
+#### 2. 
+
+
+
+#### 3. Module Status & Details
+
+
 
 ⚙️ **Preprocessing functions**
 
 
 `preprocessing/prepare_polarT_files.py`
 
-
-#### 3. Functions Status
+#### Dectection functions
 
 🔴 **Not Started**
 
