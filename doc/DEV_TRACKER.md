@@ -19,7 +19,7 @@ src/
 
 To ensure consistency across the package, all detection functions adhere to the following contracts:
 
-* Input Format: Functions accept xarray.DataArray or xarray.Dataset.
+* Input Format: Functions accept `xarray.DataArray` or `xarray.Dataset`.
 
 * Time Resolution:
     * Raw Data: Stored as 6-hourly.
