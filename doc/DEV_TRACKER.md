@@ -17,7 +17,7 @@ src/
 🟠 **In Progress (WIP)**
 
 **`zeof.py`**  
-* **Goal**: Identify evnets based on PC1 computed from daily Z anomalies
+* **Method**: Identify evnets based on PC1 computed from daily Z anomalies
 * **Current State**: ⚠️ Translation issues
     * Current implemenation (`detect_pc1_events(basepath="sh_ssw_methods/processed/")`) relies on pre-copmuted `daily.pc1.*.txt` files from eun-pa
     * _Need_: Modify to accept Z anomalies directly, compute EOF1 internally, project to PC1, and then detect events
@@ -29,9 +29,14 @@ src/
     (Contains current translation attempts and error logs)
 
 🟢 **Completed**
+
 **`ozone_threshold.py`** ✅
-* `detect_ozone_threshold(tcO3:xr.DataArray)`: detect events based on criterion on ozone threshold (thres_du)
-    * *original script:* `Ozone_Butler/sh_vortex_ozone_date.ipynb`
+* **Function**: `detect_ozone_threshold(tcO3:xr.DataArray)`
+* **Method**: Detects events based on criterion on ozone threshold (`thres_du`)
+* **Data**:
+* **Legacy Source**: `Ozone_Butler/sh_vortex_ozone_date.ipynb`
+
+
 
 | Original Function | Author | Python Function | Status | Comments |
 | :--- | :--- | :--- | :--- | :--- |
