@@ -31,10 +31,24 @@ src/
 🟢 **Completed**
 
 **`ozone_threshold.py`** ✅
-* **Function**: `detect_ozone_threshold(tcO3:xr.DataArray)`
+* **Function**: `detect_ozone_threshold(tcO3:xr.DataArray, thres_du)`
 * **Method**: Detects events based on criterion on ozone threshold (`thres_du`)
 * **Data**: `data/tco3_MERRA2.nc`
 * **Legacy Source**: `Ozone_Butler/sh_vortex_ozone_date.ipynb`
+
+
+**`u_wind_decel.py`** ✅
+* **Function**: `detect_u_decel_events(u: xr.DataArray, percentile)`
+* **Method**: Detects events based on percentiles (`percentile`) of wind deceleration of 10-day event window
+* **Data**: `data/u1060s_era5_1959_2023.nc`
+* **Legacy Source**: ``
+
+
+**`u_anom.py`** ✅
+* **Function**: `detect_ssw_u_anom(u_daily: xr.DataArray, thres)`
+* **Method**: Detects events based on threshold (`thres`) (`thres`=-11 for 50hPa, `thres`=-20 for 10hPa)
+* **Data**: 50hPa: `data/u5060s_era5_1959_2023.nc`; 10hPa: `data/u1060s_era5_1959_2023.nc`
+* **Legacy Source**: ``
 
 
 
