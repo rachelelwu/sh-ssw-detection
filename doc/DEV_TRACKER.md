@@ -25,7 +25,9 @@ src/
 
 🔴 **Not Started**
 
-
+* FZ100
+* Split
+* Displace
 
 
 🟠 **In Progress (WIP)**
@@ -84,7 +86,7 @@ src/
 * **Function**: ``
 * **Method**: 
 * **Input Data**: 
-* **Pre-processing**: Uses `` and output required files for event detection
+* **Pre-processing**: Uses `compute_stcmI` and output required files for event detection
 * **Legacy Source**: ``
 
 
