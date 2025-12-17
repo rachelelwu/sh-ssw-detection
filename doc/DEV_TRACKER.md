@@ -16,14 +16,15 @@ src/
 
 **`zeof.py`** ⚠️ 
 * **Goal**: Identify evnets based on PC1 computed from daily Z anomalies
-* **Current state**: ⚠️ Translation issues
-* `detect_pc1_events(basepath="sh_ssw_methods/processed/")`: identify events from pc1 that are already computed and outputed as daily.pc1.*.txt
-    * *original script:* `ZEOF1_Lim/event_selection.ncl`
-* ⚠️ to modify: to directly take z anomalies to output pc1, and only then uses `detect_pc1_events` to identify events
-    * *original script:*
-    * `ZEOF1_Lim/Z.month.EOF.ncl` - to identify EOF1 from monthly z data
-    * `ZEOF1_Lim/daily.pc1.ncl` - to project EOF1 identified from monthly data to daily z anomalies to get daily pc1  
-    * working .ipynb on translating into Python: `src/sh_ssw_methods/zeof_dev_attempt_dec2025.ipynb`
+* **Current State**: ⚠️ Translation issues
+    * Current implemenation (`detect_pc1_events(basepath="sh_ssw_methods/processed/")`) relies on pre-copmuted `daily.pc1.*.txt` files from eun-pa
+    * _Need_: Modify to accept Z anomalies directly, compute EOF1 internally, project to PC1, and then detect events
+* **Legacy Source**:
+    * `ZEOF1_Lim/event_selection.ncl` (event identification from pc1 (translated in python as `detect_pc1_events`))
+    * `ZEOF1_Lim/Z.month.EOF.ncl` (monthly EOF1 identification)
+    * `ZEOF1_Lim/daily.pc1.ncl` (project monthly EOF1 to daily z anomalies to pc1)
+* **Reference Notebook**: `src/sh_ssw_methods/zeof_dev_attempt_dec2025.ipynb`
+    (Contains current translation attempts and error logs)
       
 **`ozone_threshold.py`** ✅
 * `detect_ozone_threshold(tcO3:xr.DataArray)`: detect events based on criterion on ozone threshold (thres_du)
