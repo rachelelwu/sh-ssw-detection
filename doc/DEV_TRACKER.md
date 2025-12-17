@@ -33,7 +33,7 @@ src/
 **`ozone_threshold.py`** ✅
 * **Function**: `detect_ozone_threshold(tcO3:xr.DataArray)`
 * **Method**: Detects events based on criterion on ozone threshold (`thres_du`)
-* **Data**:
+* **Data**: `data/tco3_MERRA2.nc`
 * **Legacy Source**: `Ozone_Butler/sh_vortex_ozone_date.ipynb`
 
 
