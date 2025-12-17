@@ -23,12 +23,12 @@ src/
 
 
 
-⚙️ **Preprocessing functions**
+**A. Preprocessing functions**
 
 
 `preprocessing/prepare_polarT_files.py`
 
-#### Dectection functions
+**B. Dectection functions**
 
 🔴 **Not Started**
 
