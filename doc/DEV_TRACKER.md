@@ -15,8 +15,20 @@ src/
         └── prepare_polarT_files.py
 
 ```
-#### 2. 
+#### 2. Design Standards & Data Flow
 
+To ensure consistency across the package, all detection functions adhere to the following contracts:
+
+* Input Format: Functions accept xarray.DataArray or xarray.Dataset.
+
+* Time Resolution:
+    * Raw Data: Stored as 6-hourly.
+    * Standard Input: Must be averaged to Daily means before passing to detection functions.
+    * Exceptions: Specific training steps (e.g., zeof) may require Monthly anomalies.
+
+* Return Values: Functions return a standardized tuple (events_df, event_dates).
+    * `events_df` (pandas DataFrame): Detailed metrics (start date, duration, peak, etc.).
+    * `event_dates` (list/Index): Clean list of start dates.
 
 
 #### 3. Module Status & Details
