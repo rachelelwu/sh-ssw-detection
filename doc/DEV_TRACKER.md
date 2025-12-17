@@ -15,6 +15,8 @@ src/
 #### Available Functions
 
 **`zeof.py`** ⚠️ 
+* Goal: Identify evnets based on PC1 computed from daily Z anomalies
+* Current state: ⚠️ Translation issues
 * `detect_pc1_events(basepath="sh_ssw_methods/processed/")`: identify events from pc1 that are already computed and outputed as daily.pc1.*.txt
     * *original script:* `ZEOF1_Lim/event_selection.ncl`
 * ⚠️ to modify: to directly take z anomalies to output pc1, and only then uses `detect_pc1_events` to identify events
