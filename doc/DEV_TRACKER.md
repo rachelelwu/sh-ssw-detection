@@ -14,7 +14,7 @@ src/
 ```
 #### Available Functions
 
-🟠 In Progress (WIP)
+🟠 **In Progress (WIP)**
 
 **`zeof.py`**  
 * **Goal**: Identify evnets based on PC1 computed from daily Z anomalies
@@ -28,7 +28,7 @@ src/
 * **Reference Notebook**: `src/sh_ssw_methods/zeof_dev_attempt_dec2025.ipynb`
     (Contains current translation attempts and error logs)
 
-🟢 Completed
+🟢 **Completed**
 **`ozone_threshold.py`** ✅
 * `detect_ozone_threshold(tcO3:xr.DataArray)`: detect events based on criterion on ozone threshold (thres_du)
     * *original script:* `Ozone_Butler/sh_vortex_ozone_date.ipynb`
