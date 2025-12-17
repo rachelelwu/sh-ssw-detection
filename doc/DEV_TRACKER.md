@@ -46,48 +46,50 @@ src/
 **`ozone_threshold.py`** ✅
 * **Function**: `detect_ozone_threshold(tcO3:xr.DataArray, thres_du)`
 * **Method**: Detects events based on criterion on ozone threshold (`thres_du`)
-* **Data**: `data/tco3_MERRA2.nc`
+* **Input Data**: `data/tco3_MERRA2.nc`
 * **Legacy Source**: `Ozone_Butler/sh_vortex_ozone_date.ipynb`
 
 
 **`u_wind_decel.py`** ✅
 * **Function**: `detect_u_decel_events(u: xr.DataArray, percentile)`
 * **Method**: Detects events based on percentiles (`percentile`) of wind deceleration of 10-day event window
-* **Data**: `data/u1060s_era5_1959_2023.nc`
+* **Input Data**: `data/u1060s_era5_1959_2023.nc`
 * **Legacy Source**: ``
 
 
 **`u_anom.py`** ✅
 * **Function**: `detect_ssw_u_anom(u_daily: xr.DataArray, thres)`
 * **Method**: Detects events based on threshold (`thres`) (`thres`=-11 for 50hPa, `thres`=-20 for 10hPa)
-* **Data**: 50hPa: `data/u5060s_era5_1959_2023.nc`; 10hPa: `data/u1060s_era5_1959_2023.nc`
+* **Input Data**: 50hPa: `data/u5060s_era5_1959_2023.nc`; 10hPa: `data/u1060s_era5_1959_2023.nc`
 * **Legacy Source**: ``
 
 
 **`u_tend.py`** ✅
 * **Function**: `detect_ssw_u_tend(u_daily: xr.DataArray, thres)`
 * **Method**: Detects events based on threshold (`thres`) (`thres`=-19 for 50hPa, `thres`=-35 for 10hPa)
-* **Data**: 50hPa: `data/u5060s_era5_1959_2023.nc`; 10hPa: `data/u1060s_era5_1959_2023.nc`
+* **Input Data**: 50hPa: `data/u5060s_era5_1959_2023.nc`; 10hPa: `data/u1060s_era5_1959_2023.nc`
 * **Legacy Source**: ``
 
 
 **`polarT.py`** ✅
 * **Function**: `detect_ssw_polarT(Tband_file, polarT_file, fsw_file)`
-* **Method**: 
-* **Data**: 
+* **Method**: Detect events based on temperature files and final warming dates, temperature and final warming dates can be computed from temp and u files
+* **Input Data**: temp: `processed/era5_temp_sh_10hPa_1979_2023.nc`; u: `data/u1060s_era5_1959_2023.nc`
+* **Pre-processing**: Uses `output_polarT_prefiles`, `detect_fsw_SH` and output required files for event detection
 * **Legacy Source**: ``
 
 
 
-| Original Function | Author | Python Function | Status | Comments |
-| :--- | :--- | :--- | :--- | :--- |
-| FZ100 | thomas |  | 🛑 Todo |  |
-| STmode | eun-pa |  | ✅ Done |  |
-| polarT1 | eun-pa | | ✅ Done |  |
-| zeof1 | eun-pa | zeof.py | ⚠️ WIP | function translation attempt and problems described in src/sh_ssw_methods/zeof_dev_attempt_dec2025.ipynb|
-| ozone | amy| | ✅ Done  |  |
-| Uanom |  | | ✅ Done |  |
-| Utend |  | | ✅ Done |  |
-| Udrop | rachel | | ✅ Done |  |
-| Split | martin | | 🛑 Todo  |  |
-| Displace | martin | |🛑 Todo |  |
+
+| | Original Function | Author | Python Function | Status | Comments |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 1.| FZ100 | thomas |  | 🛑 Todo |  |
+| 2.| STmode | eun-pa |  | ✅ Done |  |
+| 3.| polarT1 | eun-pa | | ✅ Done |  |
+| 4.| zeof1 | eun-pa | zeof.py | ⚠️ WIP | function translation attempt and problems described in src/sh_ssw_methods/zeof_dev_attempt_dec2025.ipynb|
+| 5.| ozone | amy| | ✅ Done  |  |
+| 6.| Uanom |  | | ✅ Done |  |
+| 7.| Utend |  | | ✅ Done |  |
+| 8.| Udrop | rachel | | ✅ Done |  |
+| 9.| Split | martin | | 🛑 Todo  |  |
+| 10.| Displace | martin | |🛑 Todo |  |
