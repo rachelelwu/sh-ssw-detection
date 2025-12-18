@@ -45,6 +45,8 @@ To ensure consistency across the package, all detection functions adhere to the 
 🔴 **Not Started**
 
 **`FZ100`**
+* **Current State**: running as it is but in python, not using `xarray.DataArray` as inputs identifying events from .bin file
+* **Function**: `drophf4n`, located in `last_sh_ssw_methods/EPflux_reichler.py`
 
 **`Split`**
 
