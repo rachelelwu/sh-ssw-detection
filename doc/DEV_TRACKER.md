@@ -22,6 +22,12 @@ src/
         ├── prepare_polarT_xarray.py
         ├── prepare_polarT_files.py
         └── prepare_eof.py
+    └── utils/            # Utilities
+        ├── __init__.py
+        ├── xr_operators.py   
+        └── event_iden_funcs.py
+
+
 
 ```
 #### 2. Design Standards & Data Flow
