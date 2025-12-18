@@ -8,8 +8,12 @@ src/
 └── sh_ssw_methods/               # Main package containing ssw identification functions
     ├── __init__.py               # Exposes functions for easy import
     ├── zeof.py                   # (WIP) Zonal EOF analysis
+    ├── u_wind_decel.py        # (Add specific filenames here as created)
+    ├── u_tend.py        # (Add specific filenames here as created)
+    ├── u_anom.py        # (Add specific filenames here as created)
+    ├── ST_mode.py        # (Add specific filenames here as created)
+    ├── polarT.py        # (Add specific filenames here as created)
     ├── ozone_threshold.py        # Ozone threshold detection
-    ├── [other_modules].py        # (Add specific filenames here as created)
     └── preprocessing/            # Data preparation and formatting utilities
         ├── __init__.py
         └── prepare_polarT_files.py
