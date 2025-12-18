@@ -16,7 +16,12 @@ src/
     ├── ozone_threshold.py        # Ozone threshold detection
     └── preprocessing/            # Data preparation and formatting utilities
         ├── __init__.py
-        └── prepare_polarT_files.py
+        ├── return_fsw_dates.py
+        ├── project_mon_eof.py
+        ├── prepare_stcmi.py
+        ├── prepare_polarT_xarray.py
+        ├── prepare_polarT_files.py
+        └── prepare_eof.py
 
 ```
 #### 2. Design Standards & Data Flow
