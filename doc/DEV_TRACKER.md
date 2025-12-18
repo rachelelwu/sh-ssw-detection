@@ -44,9 +44,11 @@ To ensure consistency across the package, all detection functions adhere to the 
 
 🔴 **Not Started**
 
-* FZ100
-* Split
-* Displace
+**`FZ100`**
+
+**`Split`**
+
+**`Displace`**
 
 
 🟠 **In Progress (WIP)**
