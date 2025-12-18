@@ -46,19 +46,19 @@ To ensure consistency across the package, all detection functions adhere to the 
 
 🔴 **Not Started**
 
-**`FZ100`**
+**1. `FZ100`**
 * **Current State**: running as it is but in python, not using `xarray.DataArray` as input; Current identifying events from computed heatfluxes file (`data/f2bym_100_20_90_SH_ERA5_1979_2023.bin`)
 * **Function**: `drophf4n`, located in `last_sh_ssw_methods/EPflux_reichler.py`
 * **Legacy Source**: `EPflux_Reichler/updated/drop_Rachel.pro` ### script will be sent in email to you as an attachment
 
-**`Split`**
+**2. `Split`**
 
-**`Displace`**
+**3. `Displace`**
 
 
 🟠 **In Progress (WIP)**
 
-**`zeof.py`**  
+**4. `zeof.py`**  
 * **Method**: Identify evnets based on PC1 computed from daily Z anomalies
 * **Current State**: ⚠️ Translation issues
     * Current implemenation (`detect_pc1_events(basepath="sh_ssw_methods/processed/")`) relies on pre-copmuted `daily.pc1.*.txt` files from eun-pa
@@ -72,35 +72,35 @@ To ensure consistency across the package, all detection functions adhere to the 
 
 🟢 **Completed**
 
-**`ozone_threshold.py`** ✅
+**5. `ozone_threshold.py`** ✅
 * **Function**: `detect_ozone_threshold(tcO3:xr.DataArray, thres_du)`
 * **Method**: Detects events based on criterion on ozone threshold (`thres_du`)
 * **Input Data**: `data/tco3_MERRA2.nc`
 * **Legacy Source**: `Ozone_Butler/sh_vortex_ozone_date.ipynb`
 
 
-**`u_wind_decel.py`** ✅
+**6. `u_wind_decel.py`** ✅
 * **Function**: `detect_u_decel_events(u: xr.DataArray, percentile)`
 * **Method**: Detects events based on percentiles (`percentile`) of wind deceleration of 10-day event window
 * **Input Data**: `data/u1060s_era5_1959_2023.nc`
 * **Legacy Source**: ``
 
 
-**`u_anom.py`** ✅
+**7. `u_anom.py`** ✅
 * **Function**: `detect_ssw_u_anom(u_daily: xr.DataArray, thres)`
 * **Method**: Detects events based on threshold (`thres`) (`thres`=-11 for 50hPa, `thres`=-20 for 10hPa)
 * **Input Data**: 50hPa: `data/u5060s_era5_1959_2023.nc`; 10hPa: `data/u1060s_era5_1959_2023.nc`
 * **Legacy Source**: `u1060s_Karpechko/u1060S_jra55_analyze.ipynb`
 
 
-**`u_tend.py`** ✅
+**8. `u_tend.py`** ✅
 * **Function**: `detect_ssw_u_tend(u_daily: xr.DataArray, thres)`
 * **Method**: Detects events based on threshold (`thres`) (`thres`=-19 for 50hPa, `thres`=-35 for 10hPa)
 * **Input Data**: 50hPa: `data/u5060s_era5_1959_2023.nc`; 10hPa: `data/u1060s_era5_1959_2023.nc`
 * **Legacy Source**: `u1060s_Karpechko/u1060S_jra55_analyze.ipynb`
 
 
-**`polarT.py`** ✅
+**9. `polarT.py`** ✅
 * **Function**: `detect_ssw_polarT(Tband_file, polarT_file, fsw_file)`
 * **Method**: Detect events based on temperature files and final warming dates, temperature and final warming dates can be computed from temp and u files
 * **Input Data**: temp: `processed/era5_temp_sh_10hPa_1979_2023.nc`; u: `data/u1060s_era5_1959_2023.nc`
@@ -108,7 +108,7 @@ To ensure consistency across the package, all detection functions adhere to the 
 * **Legacy Source**: `polarT_Lim/ShenEtAl2022.org.Tgrad.ncl` ??? check which function you translated 
 
 
-**`STmode.py`** ✅
+**10. `STmode.py`** ✅
 * **Function**: `detect_stmi_events(stcmI_file)`
 * **Method**: 
 * **Input Data**: monthly u: `processed/era5_uwind_all_lv_monthly_1979_2023.nc`
@@ -124,12 +124,12 @@ To ensure consistency across the package, all detection functions adhere to the 
 | | Original Function | Author | Python Function | Status | Comments |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 1.| FZ100 | thomas |  | 🛑 Todo |  |
-| 2.| STmode | eun-pa |  | ✅ Done |  |
-| 3.| polarT1 | eun-pa | | ✅ Done |  |
+| 2.| Split | martin | | 🛑 Todo  |  |
+| 3.| Displace | martin | |🛑 Todo |  |
 | 4.| zeof1 | eun-pa | zeof.py | ⚠️ WIP | function translation attempt and problems described in src/sh_ssw_methods/zeof_dev_attempt_dec2025.ipynb|
 | 5.| ozone | amy| | ✅ Done  |  |
-| 6.| Uanom |  | | ✅ Done |  |
-| 7.| Utend |  | | ✅ Done |  |
-| 8.| Udrop | rachel | | ✅ Done |  |
-| 9.| Split | martin | | 🛑 Todo  |  |
-| 10.| Displace | martin | |🛑 Todo |  |
+| 6.| Udrop | rachel | | ✅ Done |  |
+| 7.| Uanom | alexey | | ✅ Done |  |
+| 8.| Utend | alexey | | ✅ Done |  |     
+| 9.|  polarT1 | eun-pa | | ✅ Done |  |   
+| 10.|  STmode | eun-pa |  | ✅ Done |  |    
