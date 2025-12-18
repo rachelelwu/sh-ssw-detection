@@ -42,11 +42,14 @@ To ensure consistency across the package, all detection functions adhere to the 
 
 **B. Dectection functions**
 
+* All legacy scripts are as Martin you sent me, just have one extra one that I received from Thomas, in which he simplified the script a bit
+
 🔴 **Not Started**
 
 **`FZ100`**
 * **Current State**: running as it is but in python, not using `xarray.DataArray` as input; Current identifying events from computed heatfluxes file (`data/f2bym_100_20_90_SH_ERA5_1979_2023.bin`)
 * **Function**: `drophf4n`, located in `last_sh_ssw_methods/EPflux_reichler.py`
+* **Legacy Source**: `EPflux_Reichler/updated/drop_Rachel.pro` ### script will be sent in email to you as an attachment
 
 **`Split`**
 
