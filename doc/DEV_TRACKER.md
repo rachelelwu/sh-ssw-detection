@@ -45,7 +45,7 @@ To ensure consistency across the package, all detection functions adhere to the 
 🔴 **Not Started**
 
 **`FZ100`**
-* **Current State**: running as it is but in python, not using `xarray.DataArray` as input; Current identifying events from computed heatfluxes file (`f2bym_100_20_90_SH_ERA5_1979_2023.bin`)
+* **Current State**: running as it is but in python, not using `xarray.DataArray` as input; Current identifying events from computed heatfluxes file (`data/f2bym_100_20_90_SH_ERA5_1979_2023.bin`)
 * **Function**: `drophf4n`, located in `last_sh_ssw_methods/EPflux_reichler.py`
 
 **`Split`**
