@@ -102,7 +102,7 @@ To ensure consistency across the package, all detection functions adhere to the 
 * **Function**: `detect_u_decel_events(u: xr.DataArray, percentile)`
 * **Method**: Detects events based on percentiles (`percentile`) of wind deceleration of 10-day event window
 * **Input Data**: `data/u1060s_era5_1959_2023.nc`
-* **Legacy Source**: ``
+* **Legacy Source**: `wind_tendency_rw/mod_decel.py`
 
 
 **7. `u_anom.py`** ✅
