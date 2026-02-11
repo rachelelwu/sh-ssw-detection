@@ -68,7 +68,11 @@ To ensure consistency across the package, all detection functions adhere to the 
 
 **2. `Split`**
 
+(@Martin: your function) 
+
 **3. `Displace`**
+
+(@Martin: your function) 
 
 
 🟠 **In Progress (WIP)**
