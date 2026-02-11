@@ -6,14 +6,14 @@ The python functions are stored in `src/sh_ssw_methods`, while `src/test_main.ip
 src/
 ├── test_main.ipynb               # Entry point for testing and validation
 └── sh_ssw_methods/               # Main package containing ssw identification functions
-    ├── __init__.py               # Exposes functions for easy import
-    ├── zeof.py                   # (WIP) Zonal EOF analysis
-    ├── u_wind_decel.py        # (Add specific filenames here as created)
-    ├── u_tend.py        # (Add specific filenames here as created)
-    ├── u_anom.py        # (Add specific filenames here as created)
-    ├── ST_mode.py        # (Add specific filenames here as created)
-    ├── polarT.py        # (Add specific filenames here as created)
-    ├── ozone_threshold.py        # Ozone threshold detection
+    ├── __init__.py           
+    ├── zeof.py                  
+    ├── u_wind_decel.py      
+    ├── u_tend.py        
+    ├── u_anom.py        
+    ├── ST_mode.py      
+    ├── polarT.py        
+    ├── ozone_threshold.py        
     └── preprocessing/            # Data preparation and formatting utilities
         ├── __init__.py
         ├── return_fsw_dates.py
