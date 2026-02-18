@@ -58,6 +58,7 @@ def build_events_df(
     latitude: float | None = None,
     lat_band: str | None = None,
     notes: str | None = None,
+    extra_cols: dict | None = None,   # NEW: per-event columns (e.g., {"drop_val": drop_vals})
 ) -> pd.DataFrame:
     """
     Create a unified event table from arrays/iterables.
@@ -65,30 +66,45 @@ def build_events_df(
     Parameters
     ----------
     dates : array-like of datetime-like
-        Event 'date' (e.g., start date). Required.
-    start_dates/end_dates : array-like datetime-like, optional
-        If given, will compute duration_days.
-    peak_values : array-like of float, optional
-    peak_dates : array-like of datetime-like, optional
+        Event 'date' (e.g., onset). Required.
+    extra_cols : dict, optional
+        Mapping of column_name -> scalar or array-like of length len(dates).
+        Use this to add per-event metrics, e.g., {"drop_val": drop_vals, "window_days": 10}.
+        Scalars will be broadcast to all rows.
     """
 
     df = pd.DataFrame({"date": pd.to_datetime(dates)})
+    n = len(df)
 
-    # Identity & provenance
+    # Identity & provenance (constant per table)
     df["method"] = method
     df["definition"] = definition
     df["data_source"] = data_source
 
-
-    # Optional metadata
+    # Optional metadata (constant per table unless you pass via extra_cols)
     df["threshold"] = threshold
     df["level_hpa"] = level_hpa
     df["latitude"] = latitude
     df["lat_band"] = lat_band
     df["notes"] = notes
 
-    # Enforce dtypes
+    # Add per-event columns
+    if extra_cols:
+        for key, val in extra_cols.items():
+            # Broadcast scalars
+            if np.ndim(val) == 0:
+                df[key] = val
+            else:
+                s = pd.Series(val)
+                if len(s) != n:
+                    raise ValueError(
+                        f"extra_cols['{key}'] length {len(s)} != number of dates {n}"
+                    )
+                df[key] = s.values
+
+    # Enforce dtypes for selected string columns
     for col in ["method", "definition", "data_source", "lat_band"]:
         df[col] = df[col].astype("string")
 
     return df.sort_values("date").reset_index(drop=True)
+
